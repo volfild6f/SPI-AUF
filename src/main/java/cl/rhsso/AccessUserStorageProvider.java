@@ -11,10 +11,10 @@ import java.util.Set;
 
 import javax.ejb.Local;
 import javax.ejb.Stateful;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+//import javax.persistence.EntityManager;
+//import javax.persistence.PersistenceContext;
+//import javax.persistence.Query;
+//import javax.persistence.TypedQuery;
 
 import org.apache.log4j.Logger;
 import org.keycloak.Config.Scope;
@@ -216,7 +216,7 @@ public class AccessUserStorageProvider implements UserStorageProvider,
 		logger.info("dentro isConfiguredFor");
 		String password = user.getUsername();
 		//String password = properties.getProperty(user.getUsername());
-		logger.info("isConfiguredFor - valor password: " + password);
+		logger.info("Linea 219 --isConfiguredFor - valor password: " + password);
 		return credentialType.equals(CredentialModel.PASSWORD) && password != null;
 	}
 
@@ -231,7 +231,7 @@ public class AccessUserStorageProvider implements UserStorageProvider,
 		
 		
 		String jdbcUrl = properties.getProperty("jdbcUrl");
-		System.out.println("tirando jdbcURL: " + jdbcUrl);
+		System.out.println("llamando jdbcURL: " + jdbcUrl);
 		logger.info("Linea 222 --dentro isValid... ");
 		if (!supportsCredentialType(input.getType()) || !(input instanceof UserCredentialModel))
 			return false;

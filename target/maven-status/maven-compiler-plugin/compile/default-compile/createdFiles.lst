@@ -1,0 +1,10 @@
+cl/rhsso/AccessUserStorageProvider.class
+cl/rhsso/AccessUserStorageProvider$1.class
+cl/rhsso/utils/ConnectionFactory.class
+cl/rhsso/dao/impl/UserFederationDAOImpl.class
+cl/rhsso/utils/CypherBCryptPass.class
+cl/rhsso/AccessUserStorageProvider$2.class
+cl/rhsso/AccessUserStorageProviderFactory.class
+cl/rhsso/UserAdapter.class
+cl/rhsso/vo/UserInfoVO.class
+cl/rhsso/dao/UserFederationDAO.class

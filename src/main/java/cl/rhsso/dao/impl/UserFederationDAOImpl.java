@@ -21,6 +21,7 @@ import cl.rhsso.vo.UserInfoVO;
 public class UserFederationDAOImpl implements UserFederationDAO {
 	
 	ConnectionFactory dataConnection;
+	
 	public UserFederationDAOImpl(Properties properties) {
 		dataConnection = ConnectionFactory.getInstance(properties);
 	}
@@ -41,7 +42,7 @@ public class UserFederationDAOImpl implements UserFederationDAO {
 		        conn = dataConnection.getConnectionSoftland();
 		        System.out.println("DAO Impl --connection username: "+ conn);
 		        Statement statement = conn.createStatement();
-		        String sql = "select usrID, usrFirstName, usrLastName, usrLogin, usrEmail, usrMobile from DCCPPlatform.dbo.gblUser where usrLogin = '"+ username +"'";
+		        String sql = "select usrID, usrFirstName, usrLastName, usrLogin, usrEmail, usrMobile from DCCPPlatform.dbo.gblUser where usrLogin = '"+ username +"' and  usrIsActive = '1' ";
 		        rs = statement.executeQuery(sql);
 		        
 		        if (rs.next())
@@ -57,7 +58,7 @@ public class UserFederationDAOImpl implements UserFederationDAO {
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
-		} finally {          //TODO esto esta bueno?
+		} finally {          //TODO 
 			try {
 				conn.close();
 				rs.close();
@@ -84,6 +85,7 @@ public class UserFederationDAOImpl implements UserFederationDAO {
 		        conn = dataConnection.getConnectionSoftland();
 		        System.out.println("connection is valid: "+ conn);
 		        Statement statement = conn.createStatement();
+		        
 		        String sqlEncrypt = "Select dccpprocurement.dbo.fn_EncriptarQS ('"+password+"')";
 		        rs = statement.executeQuery(sqlEncrypt);
 		        String passwordEncriptada = "";
@@ -91,7 +93,7 @@ public class UserFederationDAOImpl implements UserFederationDAO {
 		        	passwordEncriptada = rs.getString(1);
 		        
 		        String sql = "select usrID, usrFirstName, usrLastName, usrLogin, usrEmail, usrMobile from DCCPPlatform.dbo.gblUser where usrLogin = '"+ username +"' and usrPassword = '"+passwordEncriptada+"'";
-		        System.out.println("variable sql isValid: " + sql);
+		        //System.out.println("variable sql isValid: " + sql);
 		        rs = statement.executeQuery(sql); 
 		        
 		        if(rs.next())
@@ -215,6 +217,7 @@ public class UserFederationDAOImpl implements UserFederationDAO {
 //		        String sql = "UPDATE [database].dbo.usuario\n"
 //		        		+ "SET first_name='"+first_name+"', last_name='"+last_name+"', password='"+password+"', email='"+email+"', atributo='' where lower(username) = '"+username+"'";
 //		        System.out.println("sql: " + sql); TODO  CAMBIAR CON LO DE ENCRIPTAR PASSWORD
+		        
 		        statement.executeUpdate(sql);
 		} catch (SQLException e) {
 			// 
@@ -229,8 +232,8 @@ public class UserFederationDAOImpl implements UserFederationDAO {
 	public boolean addUser(String id, String username, String email, String first_name, String last_name,
 			String password, String atributo) {
 		
-		UserInfoVO userinfo = new UserInfoVO();
-		Context initContext;
+		//UserInfoVO userinfo = new UserInfoVO();
+		//Context initContext;
 		Connection conn = null;
 
 		try {
@@ -272,7 +275,8 @@ public class UserFederationDAOImpl implements UserFederationDAO {
 		        
 //		        String sql = "INSERT INTO [database].dbo.usuario\n"
 //		        		+ "(id, first_name, last_name, username, password, email, atributo)	VALUES('"+id+"', '"+first_name+"', '"+last_name+"', '"+username+"', '"+password+"', '"+email+"', '"+atributo+"'); ";
-		        stmt.executeUpdate(); // stmt.execute();
+		        //stmt.executeUpdate(); 
+		        stmt.execute();
 		        
 		      
 		} catch (SQLException e) {

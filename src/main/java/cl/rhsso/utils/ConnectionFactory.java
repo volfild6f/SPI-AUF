@@ -32,10 +32,10 @@ public class ConnectionFactory {
 		String userName = properties.getProperty("userName");
 		String password = properties.getProperty("password");
 		
-		logger.info("jdbcUrl: "+jdbcUrl);
-		logger.info("driver: "+driver);
-		logger.info("userName: "+userName);
-		logger.info("password: "+password);
+//		logger.info("jdbcUrl: "+jdbcUrl);
+//		logger.info("driver: "+driver);
+//		logger.info("userName: "+userName);
+//		logger.info("password: "+password);
 		
 		try {
 			Class.forName(driver);
