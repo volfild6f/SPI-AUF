@@ -10,6 +10,11 @@ COPY access-user-federation-1.0.0.jar /opt/eap/standalone/deployments
 COPY jtds-1.3.1.jar /opt/eap/extensions/
 #jar a deployment
 
+COPY jtds.tar.gz /opt/eap/modules/
+
+RUN cd /opt/eap/modules/ && \
+    tar -xvf /opt/eap/modules/jtds.tar.gz
+
 #COPY sso-extensions.cli /opt/eap/extensions
 
 #creación del usuario admin
