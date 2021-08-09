@@ -8,7 +8,7 @@ RUN mkdir -p /opt/eap/extensions
 #copiar los archivos necesarios
 COPY access-user-federation-1.0.0.jar /opt/eap/standalone/deployments
 COPY mssql-jdbc-9.4.0.jre8.jar /opt/eap/extensions/jdbc-driver.jar
-COPY sso-extension.cli /opt/eap/extensions/sso-extension.cli
+COPY sso-extensions.cli /opt/eap/extensions/sso-extensions.cli
 #COPY jtds-1.3.1.jar /opt/eap/extensions/
 #jar a deployment
 
