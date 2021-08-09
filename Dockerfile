@@ -2,7 +2,7 @@
 #FROM registry.redhat.io/rh-sso-7/sso74-openshift-rhel8
 FROM image-registry.openshift-image-registry.svc:5000/openshift/sso74-openshift-rhel8
 #usuario a utilizar dentro de la imagen
-#USER root
+USER root
 
 RUN mkdir -p opt/eap/extensions
 #copiar los archivos necesarios
