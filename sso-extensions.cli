@@ -1,6 +1,6 @@
 batch
 
-set DB_DRIVER_NAME= SQL Server
+set DB_DRIVER_NAME=SQL Server
 set DB_USERNAME=usersso
 set DB_PASSWORD=chc2k21
 set DB_DRIVER=com.microsoft.sqlserver.jdbc.SQLServerDriver
