@@ -3,7 +3,7 @@ batch
 set DB_DRIVER_NAME=SQL Server
 set DB_USERNAME=usersso
 set DB_PASSWORD=chc2k21
-set DB_DRIVER=com.microsoft.sqlserver.jdbc.SQLServerDriver
+set DB_DRIVER=https://go.microsoft.com/fwlink/?linkid=2168494
 set DB_JDBC_URL=jdbc:sqlserver://10.34.71.181:1433/DCCPRHSSO
 set DB_EAP_MODULE=com.microsoft.sqlserver
 
